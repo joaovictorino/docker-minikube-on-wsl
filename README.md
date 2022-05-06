@@ -1,4 +1,4 @@
-#How to install Docker, Docker Compose, Minikube and Helm on WSL2 Ubuntu 20.04 without Docker Desktop
+# How to install Docker, Docker Compose, Minikube and Helm on WSL2 Ubuntu 20.04 without Docker Desktop
 
 ## Install Docker
 
