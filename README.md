@@ -46,8 +46,87 @@ Run docker without sudo permission
 sudo usermod -aG docker $USER && newgrp docker
 ```
 
-## Install Docker-compose
+Install Docker-Compose
+```sh
+sudo apt-get install -y docker-compose
+```
 
 ## Install Minikube
 
+Install systemd
+```sh
+git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+cd ubuntu-wsl2-systemd-script/
+bash ubuntu-wsl2-systemd-script.sh
+```
+
+Close Ubuntu terminal, open PowerShell on Windows and then restart WSL
+```sh
+wsl --shutdown
+```
+
+Open Ubuntu terminal again and install conntrack
+```sh
+sudo apt install -y conntrack
+```
+
+Download the latest Minikube
+```sh
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+```
+
+Make it executable
+```sh
+chmod +x ./minikube
+```
+
+Move it to your user's executable PATH
+```sh
+sudo mv ./minikube /usr/local/bin/
+```
+
+Set the driver version to Docker
+```sh
+minikube config set driver docker
+```
+
+Download kubectl
+```sh
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+Make it executable
+```sh
+chmod +x ./kubectl
+```
+
+Move it to your user's executable PATH
+```sh
+sudo mv ./kubectl /usr/local/bin/
+```
+
+Start minikube
+```sh
+minikube start
+```
+
+Set the context kubectl to minikube
+```sh
+kubectl config use-context minikube
+```
+
 ## Install Helm
+Download Helm
+```sh
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+```
+
+Make it executable
+```sh
+chmod +x get_helm.sh
+```
+
+Install Helm
+```sh
+./get_helm.sh
+```
