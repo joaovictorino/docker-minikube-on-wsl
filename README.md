@@ -3,8 +3,12 @@
 ## Install Docker
 
 Remove old versions of Docker
+```sh
 sudo apt-get remove docker docker-engine docker.io containerd runc
+```
 
+Update repositories and install Docker requisites
+```sh
 sudo apt-get update
 
 sudo apt-get install \
@@ -12,3 +16,5 @@ sudo apt-get install \
     curl \
     gnupg \
     lsb-release
+```
+
